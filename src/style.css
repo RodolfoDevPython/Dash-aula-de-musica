@@ -1,0 +1,9 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body, html {
+    text-rendering: optimizeLegibility;
+    image-rendering: optimizeSpeed;
+}

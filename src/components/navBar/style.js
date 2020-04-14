@@ -1,19 +1,34 @@
 import styled from "styled-components";
 
 export const NavBar = styled.ul`
-    list-style: none;
+    /* Código do Rodolfo */
+
+    /*list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px 0px;
+    padding: 25px 0px;*/
 
-    li {
+    /*li {
         &:hover { 
             border-bottom: 2px solid cyan;
         }
         padding-bottom: 15px;
         font-size: 20pt;
         margin-right: 100px;
-    }
+    }*/
 
+    /* pequenas modificações */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    li {
+        &:hover { 
+            border-bottom: 2px solid cyan;
+        }
+        font-size: 20pt;
+        margin: 0 40px;
+    }
 `;

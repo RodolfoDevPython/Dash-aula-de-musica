@@ -12,8 +12,13 @@ export const Text = styled.h1`
     margin: 50px auto;
     color: white;
     text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     span {
-        margin-left: 50px;
         font-size: 30pt;
     }
+    
 `;

@@ -6,6 +6,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     form {
         display: flex;
@@ -17,17 +18,6 @@ export const Container = styled.div`
             font-size: 13pt;
             padding: 10px;
             
-        }
-
-        textarea {
-            padding: 5px;
-            resize: none;
-            height: 81px;
-            margin-bottom: 15px;
-            border: 1px solid black;
-            border-radius: 8px;
-            outline: none;
-            vertical-align: top;
         }
 
         .question {
@@ -74,3 +64,52 @@ export const Container = styled.div`
         }
     }
 `;
+
+
+export const Respostas = styled.textarea`
+    padding: 5px;
+    resize: none;
+    height: 81px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    outline: none;
+    vertical-align: top;
+    border: 2px solid ${ props => props.correct ? "#00bd00" : "#e60e0e" };
+    
+    &::placeholder {
+        color: ${ props => props.correct ? "#00bd00" : "#e60e0e" }; 
+    }
+
+`;
+
+export const ContainerSelectOptionModulo = styled.div `
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+
+    label {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+`
+
+export const ListaExercicios = styled.ul `
+    background-color: #4287f5;
+    padding: 2rem;
+    width: 100%;
+    border-radius: 20px;
+    list-style: none;
+
+    li {
+        background-color: #fff;
+        border-radius: 50px;
+        padding: 20px 30px;
+
+        h4 {
+
+            
+        }
+
+    }
+`

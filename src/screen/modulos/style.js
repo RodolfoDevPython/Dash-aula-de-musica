@@ -38,7 +38,7 @@ export const DivModulos = styled.div`
     .item { 
         background-color: white;
         border-radius: 5px;
-        padding: 25px 0px;
+        padding: 25px 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -50,6 +50,13 @@ export const DivModulos = styled.div`
                 font-size: 15pt;
             }
         }
+
+        p {
+            margin-top: 10px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
         button {
             margin-left: 100%;
             border-radius: 5px;

@@ -4,9 +4,8 @@ import NavigatorBar from "../../components/navBar";
 export default function Alunos() {
 
     return (
-        <>
+        <main>
             <NavigatorBar />
-            Alunos1
-        </>
+        </main>
     );
 }

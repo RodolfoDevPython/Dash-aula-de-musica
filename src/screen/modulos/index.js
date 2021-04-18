@@ -1,6 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Container, DivModulos, Input, ButtonAdd, BoxEdit, ListExercicio } from "./style";
+
+import { useHistory } from "react-router-dom";
 
 import Lottie from 'react-lottie';
 
@@ -8,13 +10,19 @@ import NavigatorBar from "../../components/navBar";
 
 import background from "../../assets/animations/learning-web-site.json";
 
-import Box from "../../components/BoxEdit";
+import Box from "../../components/Box";
+
+import api from "../../services/api";
+import { useDispatch, useSelector } from "react-redux";
+
 
 export default function Modulo() {
 
-    const array = [1,2,3,4,5];
+    const { boxShow } = useSelector( state => state.boxAction );
 
-    const [ actEditorAdd , setActEditorAdd ] = useState();
+    const [ modulos, setModulos ] = useState([]);
+
+    const dispatch = useDispatch();
 
     const options = {
         loop: true,
@@ -25,18 +33,34 @@ export default function Modulo() {
       }
     };
 
-    function handleEditOrAdd(el) {
-        const { id } = el;
+    function handleEditOrAdd(type = null, modulo = false) {
 
-        document.querySelectorAll("section#modulos > div > div").forEach( (e,i) => {
-            e.style = 'filter: blur(5px);'
-        });
+        console.log("modulo")
+        console.log(modulo)
+        dispatch({ type, modulo });
         
-        setActEditorAdd(true);
     }
 
+    useEffect( () => {
+        async function fetchData() {
+
+            const { data } = await api.get("/modulos");
+           
+            setModulos(data.modulos);
+
+        }
+
+        fetchData();
+    }, []);
+
+    useEffect( () => {
+        document.querySelectorAll("section#modulos > div > div").forEach( (e,i) => {
+            e.style = `filter: blur(${boxShow ? '5px' : '0px'});`
+        });
+    }, [boxShow])
+
     return(
-        <section id="modulos">
+        <main id="modulos">
             <NavigatorBar />
             <Container>
                 <Input placeholder="Procure seus Módulos" />
@@ -48,27 +72,36 @@ export default function Modulo() {
                 
                 <DivModulos>
                 {
-                    array.map( (e, i) => (
-                        <div key={e} className="item" >
-                            <button id={e} 
-                                onClick={ (el) => handleEditOrAdd(el.target) } >editar</button>
-                            <h1>Modulo title</h1>
-                            <ul 
-                                >
-                                
-                            </ul>
-                            <button >excluir</button>
-                        </div>  
-                    ))
+                    modulos.length > 0 
+                    ?
+                    (
+                        modulos.map( (e, i) => (
+                            <div key={i} className="item" >
+                                <button id={i} 
+                                    onClick={ (el) => handleEditOrAdd("BOX_EDIT", e) } >editar</button>
+                                <h1>{e.title}</h1>
+                                <p>{e.describe}</p>
+                                <ul 
+                                    >
+                                    
+                                </ul>
+                                <button >excluir</button>
+                            </div>  
+                        ))
+                    )
+                    : 
+                    (
+                        <span>Sem Modulos Cadastrado</span>
+                    )
                 }
-                    <ButtonAdd onClick={(el) => handleEditOrAdd(el.target) }>add</ButtonAdd>
+                    <ButtonAdd onClick={(el) => handleEditOrAdd("BOX_ADD") }>add</ButtonAdd>
                 </DivModulos>
 
-            { actEditorAdd ? 
+            { boxShow ? 
                     <Box /> 
                 : ""
             }
             </Container>
-        </section>
+        </main>
     );
 }

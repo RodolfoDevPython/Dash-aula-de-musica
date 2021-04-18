@@ -1,4 +1,9 @@
 import { combineReducers } from 'redux'
-import * as reducers from './reducers'
 
-const todoApp = combineReducers(reducers)
+import chooseModulo from "./modulos";
+import boxAction from "./BoxActions";
+
+export default combineReducers({
+    chooseModulo,
+    boxAction
+})

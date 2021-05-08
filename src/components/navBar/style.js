@@ -22,6 +22,7 @@ export const NavBar = styled.ul`
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 20px;
 
     li {

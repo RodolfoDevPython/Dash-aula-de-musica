@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    padding: 3rem 3rem 1rem 3rem;
+    padding: 3rem;
     background-color: #4287f5;
     border-radius: 5px;
+    margin-bottom: 3rem;
 `
 
 export const List = styled.ul`
@@ -68,3 +69,22 @@ export const ButtonDelete = styled.button`
     border: 1px solid transparent;
     color: #fff;
 `
+
+export const ContainerEmpty = styled.div `
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+
+    p {
+        color: #4287f5;
+        margin-bottom: 2rem;
+    }
+
+    button {
+        border: 1px solid #000; 
+        border-radius: 5px;
+        padding: .5rem;
+        cursor: pointer;
+    }
+
+`;

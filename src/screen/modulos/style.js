@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0px 10%; 
+    margin: 5rem 10%; 
     flex-direction: column;
     position: relative;
 `;
@@ -95,5 +95,17 @@ export const ButtonAdd = styled.button`
     border-radius: 50%;
     &:hover {
         cursor: pointer;
+    }
+`;
+
+export const ButtonViewQuestion = styled.a`
+    color: #4287f5;
+    border-bottom: 2px solid transparent;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: 600;
+        border-bottom-color: #4287f5;
     }
 `;

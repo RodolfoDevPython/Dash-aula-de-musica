@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    padding: 0px 100px; 
+    padding: 6rem; 
     position: relative;
     display: flex;
     justify-content: center;
@@ -64,35 +64,6 @@ export const Container = styled.div`
         }
     }
 `;
-
-
-export const Respostas = styled.textarea`
-    padding: 5px;
-    resize: none;
-    height: 81px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    outline: none;
-    vertical-align: top;
-    border: 2px solid ${ props => props.correct ? "#00bd00" : "#e60e0e" };
-    
-    &::placeholder {
-        color: ${ props => props.correct ? "#00bd00" : "#e60e0e" }; 
-    }
-
-`;
-
-export const ContainerSelectOptionModulo = styled.div `
-    display: flex;
-    flex-direction: column;
-    margin-top: 80px;
-
-    label {
-        margin-bottom: 10px;
-        font-size: 30px;
-    }
-
-`
 
 export const ListaExercicios = styled.ul `
     background-color: #4287f5;

@@ -12,11 +12,15 @@ export default function chooseModulo( state = INITAL_STATE, action ) {
 
         case 'ADD_MODULO':
 
-            return { reduceModulo: modulo };
+            return { reduceModulo: modulo, showListQuestion: false };
 
         case 'EDIT_MODULO':
 
-            return { reduceModulo: modulo };
+            return { reduceModulo: modulo, showListQuestion: false };
+
+        case 'VIEW_QUESTIONS':
+
+            return { reduceModulo: modulo, showListQuestion: true };
     
         default:
 

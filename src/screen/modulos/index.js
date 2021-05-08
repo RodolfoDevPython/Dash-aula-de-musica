@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, DivModulos, Input, ButtonAdd, BoxEdit, ListExercicio } from "./style";
+import { Container, DivModulos, Input, ButtonAdd, BoxEdit, ListExercicio, ButtonViewQuestion } from "./style";
 
 import { useHistory } from "react-router-dom";
 
@@ -16,7 +16,10 @@ import api from "../../services/api";
 import { useDispatch, useSelector } from "react-redux";
 
 
-export default function Modulo() {
+export default function Modulo({ navigation }) {
+
+
+    const location = useHistory();
 
     const { boxShow } = useSelector( state => state.boxAction );
 
@@ -33,18 +36,12 @@ export default function Modulo() {
       }
     };
 
-    function handleEditOrAdd(type = null, modulo = false) {
-
-        console.log("modulo")
-        console.log(modulo)
-        dispatch({ type, modulo });
-        
-    }
-
     useEffect( () => {
         async function fetchData() {
 
             const { data } = await api.get("/modulos");
+
+            console.log(data)
            
             setModulos(data.modulos);
 
@@ -59,8 +56,32 @@ export default function Modulo() {
         });
     }, [boxShow])
 
+    function handleEditOrAdd(type = null, modulo = false) {
+
+        console.log("modulo")
+        console.log(modulo)
+        dispatch({ type, modulo });
+        
+    }
+
+    async function handleDelete({ id }) {
+
+        try {
+            const { data: message } = await api.delete(`/modulo/${id}`);    
+            window.alert(message);
+        } catch (error) {
+            console.error({ error })
+        }
+        
+    }
+
+    function redirectQuestionView(modulo) {
+        dispatch({ type: "VIEW_QUESTIONS", modulo });
+        location.push("/exercicios")
+    }
+
     return(
-        <main id="modulos">
+        <main>
             <NavigatorBar />
             <Container>
                 <Input placeholder="Procure seus Módulos" />
@@ -81,11 +102,8 @@ export default function Modulo() {
                                     onClick={ (el) => handleEditOrAdd("BOX_EDIT", e) } >editar</button>
                                 <h1>{e.title}</h1>
                                 <p>{e.describe}</p>
-                                <ul 
-                                    >
-                                    
-                                </ul>
-                                <button >excluir</button>
+                                <ButtonViewQuestion onClick={ () => redirectQuestionView(e) }>Ver os Exercicos</ButtonViewQuestion>
+                                <button onClick={ () => handleDelete(e) } >excluir</button>
                             </div>  
                         ))
                     )

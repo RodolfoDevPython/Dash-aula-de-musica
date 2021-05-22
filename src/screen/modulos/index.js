@@ -86,8 +86,8 @@ export default function Modulo({ navigation }) {
             <Container>
                 <Input placeholder="Procure seus Módulos" />
                 <Lottie options={options}
-                    height={400}
-                    width={400}
+                    height={300}
+                    width={300}
                     speed={2}
                 />
                 

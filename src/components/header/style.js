@@ -8,7 +8,7 @@ export const ContainerHeader = styled.header`
 `;
 
 export const Text = styled.h1`
-    font-size: 50pt;
+    font-size: 3rem;
     margin: 50px auto;
     color: white;
     text-transform: uppercase;

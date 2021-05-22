@@ -21,8 +21,6 @@ export default function Exercicio() {
         async function fetchData() {
             
             if (showListQuestion)  {
-
-                console.log("aquiii")
                 
                 const { data } = await api.get(`/exercicios/${reduceModulo.id}`);
     

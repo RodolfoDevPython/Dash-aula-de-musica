@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../../utils/styleGlobal";
 
 export const Container = styled.div`
     display: flex;
@@ -34,6 +35,12 @@ export const DivModulos = styled.div`
     grid-template-columns: repeat(4 , 1fr);
     gap: 50px;
     position: relative;
+
+    @media ${devices.mobile} { 
+        grid-template-columns: repeat(2 , 1fr);
+        width: fit-content;
+    }
+
 
     .item { 
         background-color: white;

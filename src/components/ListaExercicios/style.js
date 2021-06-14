@@ -37,7 +37,7 @@ export const ContainerAnswer = styled.div`
 `
 
 export const Answer = styled.label`
-    border: 2px solid #4287f5;
+    border: 2px solid ${props => props.inputColor || '#4287f5' };
     border-radius: 4px;
     margin-right: 2rem;
     padding: 5px 10px;

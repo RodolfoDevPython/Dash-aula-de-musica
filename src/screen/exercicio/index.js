@@ -23,7 +23,7 @@ export default function Exercicio() {
             if (showListQuestion)  {
                 
                 const { data } = await api.get(`/exercicios/${reduceModulo.id}`);
-    
+
                 setExercicios(data)
             }
 

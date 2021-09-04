@@ -49,14 +49,6 @@ export default function Exercicio() {
                         <ListaExercicios props={{ exercicios, module }} />
                     )
                 }
-                
-                {
-                    /**
-                     * TODO -> Implementar o container de lista de Exercicios para quando for atualizado um modulo. 
-                     * obs: o container da lista foi iniciado.
-                     */
-                }
-
 
             </Container>
         </main>

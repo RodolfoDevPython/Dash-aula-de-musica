@@ -1,13 +1,13 @@
-describe("My First Test", function() {
+describe("Vericando os componentes em tela", function() {
 
     it("View modules", function() {
-        cy.visit("http://localhost:3000/modulos");
+        cy.visit("/modulos");
 
-        cy.get(".item")
+        cy.get(".item").should("exist");
     })
 
     it("View Exercicies in modules", function() {
-        cy.visit("http://localhost:3000/modulos");
+        cy.visit("/modulos");
 
         cy.get(".item").contains("Ver os Exercicos").click()
 

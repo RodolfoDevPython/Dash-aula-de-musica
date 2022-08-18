@@ -69,25 +69,31 @@ export const DivModulos = styled.div`
             border-radius: 5px;
             padding: 10px;
             text-transform: uppercase;
+            background: transparent;
+            color: #CC4125;
+            border: 2px dashed #CC4125;
+
             &:hover {
                 cursor: pointer;
             }
+
             &:first-child {
                 color: yellow;
                 border: 2px dashed yellow;
+                
                 &:hover {
                     background-color: yellow;
                     color: black;
                     border: none;
                 }
             }
-            color: #CC4125;
-            border: 2px dashed #CC4125;
+
             &:hover {
                 background-color: #CC4125;
                 color: white;
                 border: none;
             }
+
         }
 
     }
@@ -106,10 +112,15 @@ export const ButtonAdd = styled.button`
 `;
 
 export const ButtonViewQuestion = styled.a`
-    color: #4287f5;
+    color: #fff;
     border-bottom: 2px solid transparent;
     font-size: 1rem;
     cursor: pointer;
+    background: #4287f5;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: 1rem;
 
     &:hover {
         font-weight: 600;

@@ -56,10 +56,13 @@ export const Container = styled.div`
                 font-weight: bold;
                 grid-area: 4 / 2 span;
                 justify-self: center;
+                cursor: pointer;
+
                 &:hover {
                     background: white;
                     color: black;
                 }
+                
             }
         }
     }

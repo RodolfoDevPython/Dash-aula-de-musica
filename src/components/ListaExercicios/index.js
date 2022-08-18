@@ -95,7 +95,7 @@ export default function ListaDeExercicios({ props: exercicios }) {
                                 return (
                                     <InfoCart key={i}>
                                         <NameExercicies>
-                                            {e} ?
+                                            {e}
                                         </NameExercicies>
 
                                         <NameExerciciesEdit 

@@ -12,15 +12,7 @@ export default function FormQuestion() {
 
     const  [ info, setInfo ] = useState({ exercicio: "", respostas: { correct: null, alter1: null, alter2: null, alter3: null } , modulo: selectModulos });
 
-    const [ exercicios, setExercicios ] = useState([]);
-
-    useEffect( ( ) => {
-        console.log("info")
-        console.log(info)
-        console.log(reduceModulo)
-        console.log("=-------- info ------=")
-    }, [info ]);
-
+    const [ loading, setLoading ] = useState(false);
 
     useEffect( () => {
         async function fetchData() {
@@ -35,9 +27,22 @@ export default function FormQuestion() {
         
     }, []);
 
+    useEffect( () => {
+        console.log({
+            loading
+        });
+
+        if (!loading) {
+            setInfo({ exercicio: "", respostas: { correct: null, alter1: null, alter2: null, alter3: null } , modulo: selectModulos })
+        }
+
+    }, [loading])
+
     async function handleSave(event){
 
         event.preventDefault();
+
+        setLoading(true);
 
         console.log(reduceModulo)
 
@@ -69,10 +74,10 @@ export default function FormQuestion() {
             pontuacao: 0
         });
 
-        const respExercicios = await api.get('/modulo/13/exercicios');
+        // const respExercicios = await api.get('/modulo/13/exercicios');
 
-        setExercicios(respExercicios.data.docs);
-        
+        // setExercicios(respExercicios.data.docs);
+        setLoading(false);
     }
 
     async function handleEdit(event) {
@@ -150,7 +155,9 @@ export default function FormQuestion() {
                             required
                         ></Respostas>
                     </div>
-                    <button type="submit">Salvar</button>
+                    <button type="submit">
+                        { !loading ? 'Salvar' : 'Salvando...' }
+                    </button>
                 </div>
                 
             </form>
